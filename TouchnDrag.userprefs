@@ -1,0 +1,23 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../WorldEater_Git/WorldEater/Assets/Scripts/PlayerBehavior.cs">
+    <Files>
+      <File FileName="../../../../battleborn/Assets/Plugins/CustomExtensions.cs" Line="66" Column="1" />
+      <File FileName="../../../../WorldEater_Git/WorldEater/Assets/Scripts/PlayerControls.cs" Line="80" Column="8" />
+      <File FileName="../CubeAdventure/Assets/Scripts/Adventurer.cs" Line="54" Column="34" />
+      <File FileName="../../../../WorldEater_Git/WorldEater/Assets/Scripts/PlayerBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Following.cs" Line="42" Column="40" />
+      <File FileName="Assets/Scripts/buildScene.cs" Line="8" Column="52" />
+      <File FileName="Assets/Scripts/piSpawner.cs" Line="18" Column="56" />
+      <File FileName="Assets/Scripts/gameMaster.cs" Line="7" Column="25" />
+      <File FileName="Assets/Scripts/moverAttributes.cs" Line="11" Column="3" />
+      <File FileName="Assets/Scripts/followerAttributes.cs" Line="82" Column="5" />
+      <File FileName="Assets/Scripts/boxBehavior.cs" Line="27" Column="19" />
+      <File FileName="Assets/Scripts/slotBehavior.cs" Line="41" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
