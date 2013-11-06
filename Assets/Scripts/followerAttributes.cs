@@ -9,6 +9,8 @@ public class followerAttributes : MonoBehaviour {
 	float castRange = 1000; //Range of RayCast
 	float moveDirection; //Angle value pulled from Mover Object
 	public bool inSlot = false; //Is this follower in a slot?
+	public bool shipped = false; //reports variable back to other objects.
+	public string type;
 
 	// Use this for initialization
 	void Start () {
@@ -80,9 +82,11 @@ public class followerAttributes : MonoBehaviour {
 				transform.position = new Vector3 (snapMeX, snapMeY, transform.position.z);
 
 			}
+			// If im in a box that is full, ship me out.
 			if (hit.collider.CompareTag("Box") && hit.collider.gameObject.GetComponent<slotBehavior>().clearSlot == true) {
 				Debug.Log ("I'm shipping out yo!");
-				Destroy(this.gameObject);
+				shipped = true;
+				Destroy(this.gameObject); // This will need to be done after the follower is counted properly
 			}
 		}
 	}
