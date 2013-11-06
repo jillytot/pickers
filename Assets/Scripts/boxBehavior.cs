@@ -12,6 +12,8 @@ public class boxBehavior : MonoBehaviour {
 	public int thisPiCount;
 	public string[] boxContents;
 	int[] colorCount = new int[gameMaster.followerTypes];
+	public GameObject boxTop;
+	//Vector3 boxSpawnVector = new Vector3(0, 0, 0);
 	
 	void Awake() {
 		
@@ -41,13 +43,14 @@ public class boxBehavior : MonoBehaviour {
          		if(boxSlots[i].isFull) 
 					boxCount++;     
        	}
-		collectBirdTypes ();
+		collectTypes ();
  
        	if(boxCount == boxSize) {
 				
 			//collectBirdTypes ();
          	boxFull = true;
 			thisPiCount = boxCount + thisPiCount;
+			spawnBoxTop ();
 			Debug.Log ("Box is full");
        	}
  
@@ -56,7 +59,7 @@ public class boxBehavior : MonoBehaviour {
 	}
 	
 	//list all the bird type strings collected by slotBehavior
-	void collectBirdTypes () {
+	void collectTypes () {
 		//boxSlots = GetComponentsInChildren<slotBehavior>(); //Return an array of slotBehaviors to store
 		boxContents = new string[boxSize];
 		
@@ -66,5 +69,10 @@ public class boxBehavior : MonoBehaviour {
 			Debug.Log (boxContents);
 				
 		}
+	}
+	
+	void spawnBoxTop () {
+		
+		GameObject boxTopSpawn = (GameObject)Instantiate(boxTop, transform.position, transform.rotation);
 	}
 }

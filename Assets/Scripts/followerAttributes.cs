@@ -10,7 +10,7 @@ public class followerAttributes : MonoBehaviour {
 	float moveDirection; //Angle value pulled from Mover Object
 	public bool inSlot = false; //Is this follower in a slot?
 	public bool shipped = false; //reports variable back to other objects.
-	public string type;
+	public string type; //what type of follower am i?
 
 	// Use this for initialization
 	void Start () {
@@ -24,8 +24,8 @@ public class followerAttributes : MonoBehaviour {
 
 		// Let's see if there is something below us.
 		if (Physics.Raycast(transform.position, Vector3.forward, out hit , castRange)) {
-			Debug.Log ("I am on something...");
-			Debug.Log (hit.collider.gameObject.tag); // What am i looking at?
+			//Debug.Log ("I am on something...");
+			//Debug.Log (hit.collider.gameObject.tag); // What am i looking at?
 			
 			//What are all the things i can recognize?
 			moving = hit.collider.CompareTag("Mover");
@@ -39,13 +39,13 @@ public class followerAttributes : MonoBehaviour {
 			// If I am on a mover, i want to move the direction and speed values given by that mover
 			if (moving) {
 				
-				Debug.Log ("Oh, I am on a Mover!");
+				//Debug.Log ("Oh, I am on a Mover!");
 				
 				//Lets get these values from the Mover object via the moverAttributes script
 				moveDirection = hit.collider.gameObject.GetComponent<moverAttributes>().moverDirection;
-				Debug.Log ("movement direction is" + moveDirection);
+				//Debug.Log ("movement direction is" + moveDirection);
 				moveSpeed = hit.collider.gameObject.GetComponent<moverAttributes>().moverSpeed;
-				Debug.Log ("movement speed is" + moveSpeed);
+				//Debug.Log ("movement speed is" + moveSpeed);
 				
 				//if there are children to the object, you can use:
 				//moveDirection = hit.collider.gameObject.transform.parent.GetComponent<moverAttributes>().moverDirection;
@@ -75,16 +75,16 @@ public class followerAttributes : MonoBehaviour {
 			//If i am in a box, snap me to the nearest open slot
 			
 			if (hit.collider.CompareTag("Box")) { //&& Input.GetButtonUp ("Fire1")
-				Debug.Log ("I am in a box");
+				//Debug.Log ("I am in a box");
 				var snapMeX = hit.collider.gameObject.GetComponent<Transform>().position.x;
 				var snapMeY = hit.collider.gameObject.GetComponent<Transform>().position.y;
-				Debug.Log ("Snap me to x: " + snapMeX + " Snap me to y: " + snapMeY);
+				//Debug.Log ("Snap me to x: " + snapMeX + " Snap me to y: " + snapMeY);
 				transform.position = new Vector3 (snapMeX, snapMeY, transform.position.z);
 
 			}
 			// If im in a box that is full, ship me out.
 			if (hit.collider.CompareTag("Box") && hit.collider.gameObject.GetComponent<slotBehavior>().clearSlot == true) {
-				Debug.Log ("I'm shipping out yo!");
+				//Debug.Log ("I'm shipping out yo!");
 				shipped = true;
 				Destroy(this.gameObject); // This will need to be done after the follower is counted properly
 			}

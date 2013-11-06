@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Following.cs" />
      <Compile Include="Assets\Scripts\boxBehavior.cs" />
+     <Compile Include="Assets\Scripts\boxTopBehavior.cs" />
      <Compile Include="Assets\Scripts\buildScene.cs" />
      <Compile Include="Assets\Scripts\followerAttributes.cs" />
      <Compile Include="Assets\Scripts\gameMaster.cs" />
