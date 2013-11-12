@@ -6,7 +6,10 @@ public class gameMaster : MonoBehaviour {
 	public static gameMaster inst;
 	public float spawnRateController = 1.0f; // How fast does shit spawn?
 	public int piScore; // Your total score yo!
-	public static int followerTypes = 5; // The number of follower types in the game.
+	public GameObject[] followerTypes;
+	
+	//follower types:
+	
 	
 	void Awake() {
 		inst = this;	
@@ -14,6 +17,11 @@ public class gameMaster : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+	
+		//for (int i = 0; < followerNames.Length; i++) {
+			
+	//	}
+		//followerNames = new string [followerTypes];
 	
 	
 	}

@@ -11,7 +11,7 @@ public class boxBehavior : MonoBehaviour {
 	public static boxBehavior thisBox;
 	public int thisPiCount;
 	public string[] boxContents;
-	int[] colorCount = new int[gameMaster.followerTypes];
+	int[] colorCount; // = new int[gameMaster.followerTypes];
 	public GameObject boxTop;
 	//Vector3 boxSpawnVector = new Vector3(0, 0, 0);
 	
@@ -21,13 +21,14 @@ public class boxBehavior : MonoBehaviour {
 	}
  
 	void Start () {
- 
+ 		
     	boxSize = transform.childCount;
     	Debug.Log ("Children = " + boxSize);
+		colorCount = new int[gameMaster.inst.followerTypes.Length];
  
 	}
  
-	void Update () {
+	void FixedUpdate () {
  
 		boxFull = false;
     	if(Input.GetButtonUp("Fire1")) {
@@ -44,12 +45,14 @@ public class boxBehavior : MonoBehaviour {
 					boxCount++;     
        	}
 		collectTypes ();
+		
  
        	if(boxCount == boxSize) {
 				
-			//collectBirdTypes ();
+			//collectFollowerTypes ();
          	boxFull = true;
 			thisPiCount = boxCount + thisPiCount;
+			countColors ();
 			spawnBoxTop ();
 			Debug.Log ("Box is full");
        	}
@@ -71,8 +74,51 @@ public class boxBehavior : MonoBehaviour {
 		}
 	}
 	
-	void spawnBoxTop () {
+	//Spawn a box top based on the how many of each type of follower is in it
+	//i.e. If there are 3 red and 3 blue followers in the box when it ships, then you get a special box like "RedBlue Berries"
+	void spawnBoxTop () { 
+		Debug.Log("Reds: " + colorCount[0] + " Greens: " + colorCount[1] + " Blues: " + colorCount[2] + " Yellows: " + colorCount[3] + " Purples: " + colorCount[4]);
+		
+		if (colorCount[0] == 6) {
+			Debug.Log ("They are all Red");
+		}
 		
 		GameObject boxTopSpawn = (GameObject)Instantiate(boxTop, transform.position, transform.rotation);
+	}
+	
+	//Count how many of each type of color is in this box
+	void countColors () { 
+		
+		colorCount[0] = 0;  //Red
+		colorCount[1] = 0;  //Green
+		colorCount[2] = 0;  //Blue
+		colorCount[3] = 0;	//Yellow
+		colorCount[4] = 0;	//Purple
+		
+		foreach (string searchToString in boxContents) {
+			if (searchToString == "Red") {
+				colorCount[0]++;
+			}
+		}
+		foreach (string searchToString in boxContents) {
+			if (searchToString == "Green") {
+				colorCount[1]++;
+			}
+		}
+		foreach (string searchToString in boxContents) {
+			if (searchToString == "Blue") {
+				colorCount[2]++;
+			}
+		}
+		foreach (string searchToString in boxContents) {
+			if (searchToString == "Yellow") {
+				colorCount[3]++;
+			}
+		}
+		foreach (string searchToString in boxContents) {
+			if (searchToString == "Purple") {
+				colorCount[4]++;
+			}
+		}
 	}
 }
