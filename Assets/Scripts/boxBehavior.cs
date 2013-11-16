@@ -54,6 +54,7 @@ public class boxBehavior : MonoBehaviour {
 			thisPiCount = boxCount + thisPiCount;
 			countColors ();
 			spawnBoxTop ();
+			gameMaster.entropy = gameMaster.entropy - boxSize;
 			Debug.Log ("Box is full");
        	}
  

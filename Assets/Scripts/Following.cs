@@ -7,10 +7,11 @@ public class Following : MonoBehaviour {
 	public Rigidbody Follower; //Make me touchable
 	public bool hasTarget = false; //Am i currently selected to move?
 	public float speed = 5.0f; //Speed at which i follow the cursor
-	public static Following inst;
+	//public static Following inst;
+	public AudioClip clickMe;
 	
 		void Awake() {
-		inst = this;	
+		//inst = this;	
 	}
 
 	// Use this for initialization
@@ -33,9 +34,10 @@ public class Following : MonoBehaviour {
 			//Use cursor to detect this game object
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
    				if(Physics.Raycast(ray, out hit, 1000.0f)) {
-     				if(hit.rigidbody) {
+     				if(hit.rigidbody == this.rigidbody) {
      					Follower = hit.rigidbody;
     					hasTarget = true;
+						audio.PlayOneShot(clickMe);
 				}
 			}
 		}
@@ -44,8 +46,11 @@ public class Following : MonoBehaviour {
 		}
 			else if (hasTarget) {
 				MoveTheObject();
+
 		}
 	}
+
+	//Following
 	void MoveTheObject () {
 		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

@@ -51,10 +51,12 @@
      <Compile Include="Assets\Scripts\boxTopBehavior.cs" />
      <Compile Include="Assets\Scripts\buildScene.cs" />
      <Compile Include="Assets\Scripts\followerAttributes.cs" />
+     <Compile Include="Assets\Scripts\functionThang.cs" />
      <Compile Include="Assets\Scripts\gameMaster.cs" />
      <Compile Include="Assets\Scripts\moverAttributes.cs" />
      <Compile Include="Assets\Scripts\piSpawner.cs" />
      <Compile Include="Assets\Scripts\slotBehavior.cs" />
+     <Compile Include="Assets\Scripts\wallColliderBehavior.cs" />
      <None Include="Assets\Shaders\SimpleBlended3.shader" />
      <None Include="Assets\Shaders\RimSharp.shader" />
      <None Include="Assets\Shaders\InnerGlow.shader" />
